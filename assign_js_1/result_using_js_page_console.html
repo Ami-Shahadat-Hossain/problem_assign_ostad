@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MultiplicationTable Using JavaScript</title>
+  </head>
+  <body>
+    <script>
+      multiplicationTable(9);
+
+      function multiplicationTable(num) {
+        // Get a reference to the body element and create a table element
+        const body = document.querySelector("body");
+        const table = document.createElement("table");
+
+        // Append the table to the body element
+        body.appendChild(table);
+
+        // Loop through the numbers 1 to 10 and create a row for each one
+        for (let i = 1; i <= 10; i++) {
+
+          // Multiply the input number by the current iteration number to get the product
+          const product = num * i;
+
+          // Create a new row and three columns for each iteration
+          const row = document.createElement("tr");
+          const column1 = document.createElement("td");
+          const column2 = document.createElement("td");
+          const column3 = document.createElement("td");
+
+          // Set the text content of each column to the corresponding part of the equation
+          column1.textContent = `${num}`;
+          column2.textContent = `x ${i}`;
+          column3.textContent = `= ${product}`;
+
+          // Append the columns to the row and the row to the table
+          row.appendChild(column1);
+          row.appendChild(column2);
+          row.appendChild(column3);
+          table.appendChild(row);
+
+          // Log the equation and the product to the console
+          console.log(`${num} x ${i} = ${product}`);
+        }
+      }
+    </script>
+  </body>
+</html>
